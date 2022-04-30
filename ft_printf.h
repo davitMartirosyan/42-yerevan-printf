@@ -22,11 +22,11 @@ int     spat(char, va_list);
 size_t  _length_(char *);
 void    __char__(int, int *);
 void    __string__(char *, int *);
-int     __address__(void *);
+void    __pointer__(void *, int *);
 void    __number__(int, int *);
 void	__base__16__(unsigned int, char, int *);
 void    __rev__(char *, int, unsigned int);
-// int     __nbr__unsigned__(unsigned int);
+
 
 
 #endif

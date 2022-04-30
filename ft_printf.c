@@ -35,31 +35,40 @@ int ft_printf(const char *placeholder, ...)
     return (symbols);
 }
 
+void __pointer__(void *addr, int *cot)
+{
+    char hex[] = "0123456789abcdef";
+    unsigned long long address;
+    unsigned int i;
+    char buffer[100];
 
+    address = (unsigned long long)addr;
+    *cot += write(1, "0x", 2);
+    if(address == 0)
+    {
+        *cot += write(1, "0", 1);
+        return ;
+    }
+    i = 0;
+    while(address)
+    {
+        buffer[i] = hex[address % 16];
+        address /= 16;
+        i++;
+    }
+    buffer[i] = '\0';
+    __rev__(buffer, 0, _length_(buffer)-1);
+    *cot += write(1, buffer, _length_(buffer));
+}
 
 int main(void)
 {
-    char a = 'c';
-    char *d = &a;
-    unsigned long int dd;
-    dd = (long int)d;
-    char z[] = "0123456789abcdef";
-    char buff[50];
-    int i = 0;
-    while(dd != 0)
-    {
-        buff[i] = z[dd%16];
-        printf("%lu ||| %c\n", dd % 16, z[dd%16]);
-        dd /= 16;
-        i++;
-    }
-    int x = 0;
-    buff[i] = 0;
-    __rev__(buff, 0, _length_(buff)-1);
-    __string__("0x", &x);
-    __string__(buff, &x);
-    printf("\n%p\n", d);
-    // printf("%p\n", d);
+    char a = 'a';
+    char *c = &a;
+    int s = 0;
+    __pointer__(c, &s);
+    printf("\n");
+    printf("%p\n", c);
 }
 
 
