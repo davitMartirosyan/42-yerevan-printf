@@ -16,7 +16,7 @@ void	__base__16__(unsigned int dec, char uol, int *cot, char *hex)
 {
 	static int	index = 0;
 	int			offset;
-	static char	buffer[1500];
+	static char	buffer[100];
 
 	offset = 0;
 	if (dec == 0)
@@ -26,6 +26,7 @@ void	__base__16__(unsigned int dec, char uol, int *cot, char *hex)
 			*cot += write(1, "0", 1);
 			return ;
 		}
+		buffer[index] = '\0';
 		__rev__(buffer, 0, _length_(buffer) - 1);
 		*cot += write (1, buffer, _length_(buffer));
 		buffer[0] = 0;
