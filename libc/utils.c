@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:53:09 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/03 03:14:53 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/03 03:34:57 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ void __rev__(char *hex, int at, unsigned len)
         at++;
         len--;
     }
+}
+
+void     __char__(int c, int *cot)
+{
+    cot += write(1, &c, 1);
+}
+
+void __string__(char *string, int *cot)
+{
+    cot += write(1, string, _length_(string));
+}
+char	ft_to_upper(char c)
+{
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }
