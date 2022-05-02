@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/30 05:53:09 by dmartiro          #+#    #+#             */
+/*   Updated: 2022/05/03 03:14:53 by dmartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../ft_printf.h"
+
+size_t  _length_(char *placeholder)
+{
+    size_t  i;
+
+    i = 0;
+    while(*placeholder++)
+        i++;
+    return (i);
+}
+
+void __rev__(char *hex, int at, unsigned len)
+{ 
+    char t;
+    
+    while(at < len)
+    {
+        t = hex[at];
+        hex[at] = hex[len];
+        hex[len] = t;
+        at++;
+        len--;
+    }
+}
