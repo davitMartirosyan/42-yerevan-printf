@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:51:05 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/03 06:48:43 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/03 07:26:31 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,23 @@ void	__base__16__(unsigned int dec, char uol, int *cot)
 	__base__16__(dec / 16, uol, cot);
 }
 
+void __number__(int dec, int *cot)
+{
+    unsigned int h;
+
+    h = 0;
+    if(dec >= 0)
+        h = dec;
+    if(dec < 0)
+    {
+        __char__('-', cot);
+        h = dec * (-1);
+    }
+    if(h > 9)
+        __number__((h / 10), cot);
+    __char__((h % 10)+'0', cot);
+}
+
 
 int spat(char syb, va_list arg_list)
 {
@@ -54,5 +71,7 @@ int spat(char syb, va_list arg_list)
         __base__16__(va_arg(arg_list, unsigned int), syb, &cot);
     else if(syb == 'd' || syb == 'i')
         __number__(va_arg(arg_list, int), &cot);
+    else if(syb == '%')
+        __char__('%', &cot);
     return (cot);
 }
