@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 06:12:41 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/03 03:45:40 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/03 07:03:36 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,17 @@ int ft_printf(const char *placeholder, ...)
     return (symbols);
 }
 
-
-
+void __number__(int dec, int *cot)
+{
+    
+}
 
 int main(void)
 {
-    ft_printf("%s | %c | %x | %X | %x\n", "hello world", 'C', 1455, 1455, 1455);
-    printf("%s | %c | %x | %X", "hello world", 'C', 1455, 1455);
+    ft_printf("%c\n", 'c');
+    ft_printf("%s\n", "hello world");
+    ft_printf("%x\n", 255);
+    ft_printf("%X\n", 255);
 }
+
+

@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 06:10:48 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/03 03:35:04 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/03 06:35:52 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ size_t  _length_(char *);
 void    __char__(int, int *);
 void    __string__(char *, int *);
 int     __address__(void *);
-int     __nbr__(int);
-int     __nbr__unsigned__(unsigned int);
+void    __number__(int, int *);
 void	__base__16__(unsigned int, char, int *);
-void __rev__(char *, int, unsigned int);
-char	ft_to_upper(char);
+void    __rev__(char *, int, unsigned int);
+// int     __nbr__unsigned__(unsigned int);
 
 
 #endif
