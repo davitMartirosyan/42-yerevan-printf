@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   number.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 06:12:41 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/04 22:30:37 by dmartiro         ###   ########.fr       */
+/*   Created: 2022/05/04 18:58:56 by dmartiro          #+#    #+#             */
+/*   Updated: 2022/05/04 21:02:45 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_printf(const char *placeholder, ...)
+void	__number__(int dec, int *cot)
 {
-	int symbols;
-	
-	symbols = 0;
-	va_list rest;
-	va_start(rest, placeholder);
-	while (*placeholder)
+	unsigned int	h;
+
+	h = 0;
+	if (dec >= 0)
+		h = dec;
+	if (dec < 0)
 	{
-		if (*placeholder == '%')
-		{
-			placeholder++;
-			symbols += spat(*placeholder, rest);
-		}
-		else
-			symbols += write(1, *(&placeholder), 1);
-		placeholder++;
+		__char__('-', cot);
+		h = dec * (-1);
 	}
-	va_end(rest);
-	return (symbols);
+	if (h > 9)
+		__number__((h / 10), cot);
+	__char__((h % 10) + '0', cot);
 }
 
-// %c
-// %s
-// %d
-// %i
-// %p
-// %x
-// %X
-// %u
-// %%
-
+void	__uint__(unsigned int _uint, int *cot)
+{
+	if (_uint > 9)
+		__uint__((_uint / 10), cot);
+	__char__((_uint % 10) + '0', cot);
+}
