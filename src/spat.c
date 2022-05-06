@@ -6,11 +6,11 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:51:05 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/04 21:20:06 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/06 21:05:48 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../include/ft_printf.h"
 
 int	spat(char syb, va_list arg_list)
 {

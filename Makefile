@@ -1,44 +1,24 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/05 20:17:25 by dmartiro          #+#    #+#              #
-#    Updated: 2022/05/06 18:23:57 by dmartiro         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+ARCHIVE=libftprintf.a
+SRC_FOLDER=src
+SRC=$(wildcard $(SRC_FOLDER)/*.c)
+OBJ=$(SRC:.c=.o)
+CC=gcc
+CC_FL=-Wall -Wextra -Werror
+all: $(ARCHIVE)
 
-NAME		= printf
-CC			= gcc
-CC_FLAGS	= -Wall -Wextra -Werror
-OBJS		= lib/__base__16.o \
-			  lib/__number__.o \
-			  lib/__pointer__.o \
-			  lib/spat.o \
-			  lib/utils.o \
-			  ft_printf.o
+$(ARCHIVE) : $(OBJ)
+	@ar r $(ARCHIVE) $(OBJ)
 
-all: printf
+$(SRC_FOLDER)%.c : $(SRC)
+	@$(CC) $(CC_FL) $< -c $@
+	@echo compiling $<
 
-printf: $(OBJS)
-	$(CC) $(CC_FLAGS) -o printf $(OBJS)
+clean :
+	rm -f $(SRC_FOLDER)/*.o
 
-lib/__base__16.o : lib/__base__16.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c lib/__base__16.c
+fclean : clean
+	rm -f libftprintf.a
 
-lib/__number__.o : lib/__number__.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c lib/__base__16.c
+re : fclean all
 
-lib/__pointer__.o : lib/__pointer__.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c lib/__pointer__.c
-
-lib/spat.o : lib/spat.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c lib/spat.c
-
-lib/utils.o : lib/spat.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c lib/utils.c
-
-ft_printf.o : ft_printf.c ft_printf.h
-	$(CC) $(CC_FLAGS) -c ft_printf.c
+.PHONY: clean all re fclean
