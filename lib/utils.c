@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:53:09 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/04 20:54:02 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/05 20:00:19 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	_length_(char *placeholder)
 	return (i);
 }
 
-void	__rev__(char *hex, int at, unsigned len)
+void	__rev__(char *hex, int at, int len)
 {
 	char	t;
 
