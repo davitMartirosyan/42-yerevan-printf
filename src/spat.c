@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:51:05 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/06 21:05:48 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/07 20:04:55 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	spat(char syb, va_list arg_list)
 		__uint__(va_arg(arg_list, unsigned int), &cot);
 	else if (syb == '%')
 		__char__('%', &cot);
-    return (cot);
+	return (cot);
 }

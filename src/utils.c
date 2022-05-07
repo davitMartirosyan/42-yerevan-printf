@@ -6,7 +6,7 @@
 /*   By: dmartiro <dmartiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 05:53:09 by dmartiro          #+#    #+#             */
-/*   Updated: 2022/05/06 20:34:30 by dmartiro         ###   ########.fr       */
+/*   Updated: 2022/05/07 20:00:23 by dmartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	_length_(char *placeholder)
 {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (*placeholder++)
@@ -43,7 +43,7 @@ void	__char__(int c, int *cot)
 
 void	__string__(char *string, int *cot)
 {
-	if(!string)
+	if (!string)
 		*cot += write(1, "(null)", 6);
 	else
 		*cot += write(1, string, _length_(string));
